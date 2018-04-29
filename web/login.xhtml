@@ -17,7 +17,6 @@
 
     <ui:define name="content">
         <center>
-            <h3>Eingeloggt als: #{loginSession.user.email}</h3>
             <h:form>
                 <h:panelGrid columns="2">
                     <p style="margin-bottom: auto; margin-top: auto; width: 100px;">E-Mail: </p>
@@ -25,12 +24,22 @@
                     <p style="margin-bottom: auto; margin-top: auto; width: 100px;">Passwort: </p>
                     <h:inputText style="margin-bottom: 5px; width: 200px;" value="#{loginController.password}" /><br/>
                     <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
+<<<<<<< HEAD
                 </h:panelGrid>
                 <br/>
                 <p style="color: red;">#{loginController.errorMessage}</p>
                 <br/>
                 <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="registrierung" />, wenn Sie kein Konto haben.</p>
             </h:form>
+=======
+
+                </h:panelGrid>
+                <h:outputText value="#{loginController.errorMessage}" />
+                <br/><br/>
+                <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="registrierung" />, wenn Sie kein Konto haben.</p>
+            </h:form>
+
+>>>>>>> 7601a6d0511dff02e5492531d54b8458dc654f13
         </center>
     </ui:define>
 

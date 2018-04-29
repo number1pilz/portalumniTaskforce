@@ -16,33 +16,7 @@
     </ui:define>
     
     <ui:define name="content">
-        <h:form>
-            <f:metadata>
-                <f:viewAction action="#{accessController.jumpOutOfPageByAccess(userDAO.currentUser)}" />
-            </f:metadata>
-            <h:outputLabel value="Neue E-Mail: "></h:outputLabel>
-            <h:inputText id="email" value="#{settingsService.newEMail}"></h:inputText>
-            <br></br>
-            <h:outputLabel value="Neues Passwort: "></h:outputLabel>
-            <h:inputText id="newPassword" value="#{settingsService.newPassword}"></h:inputText>
-            <br></br>
-            <h:outputLabel value="Passwort wiederholen: "></h:outputLabel>
-            <h:inputText id="againNewPassword" value="#{settingsService.againNewPassword}"></h:inputText>
-            <br></br>
-            <h:outputLabel value="Neuer Username: "></h:outputLabel>
-            <h:inputText id="newUserName" value="#{settingsService.newUserName}"></h:inputText>
-            <br></br>
-<!--            <h:form>
-            <h:panelGrid columns="2">         
-                <h:selectBooleanCheckbox value="#{settingsService.newsLetterChecked}">
-                    <f:selectItem itemValue="1" itemLabel="check" />
-                </h:selectBooleanCheckbox>
-            </h:panelGrid>
-        </h:form>-->
-            
-            <h:commandButton value="Änderungen speichern" type="submit" action="#{settingsService.saveSettings()}" />
-            <h:commandButton value="Konto löschen" type="submit" action="#{settingsService.deleteUser()}" />
-        </h:form>
+        
     </ui:define>
 </ui:composition>
 

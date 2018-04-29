@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,7 +21,7 @@ import javax.inject.Named;
  * @author Fabian Ulrich
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class LoginController implements Serializable {
 
     private String email;
@@ -60,25 +61,25 @@ public class LoginController implements Serializable {
         return errorMessage;
     }
     
-    public void checkUser() {
+    public String checkUser() {
         String returnVal = loginSession.validate(email, password);
         
         switch(returnVal){
             case "success":
                 this.errorMessage = "";
-                break;
+                return "index.xhtml?faces-redirect=true";
             case "notEnabled":
                 this.errorMessage = "Fehler: Dieser Benutzer ist nicht freigeschalten.";
-                break;
+                return "login.xhtml?faces-redirect=true";
             case "wrongPassword":
                 this.errorMessage = "Ungültiges Passwort.";
-                break;
+                return "login.xhtml?faces-redirect=true";
             case "unknownEmail":
                 this.errorMessage = "Ein Benutzer mit dieser E-Mail-Adresse existiert nicht.";
-                break;
+                return "login.xhtml?faces-redirect=true";
+            default:
+                return "index.xhtml?faces-redirect=true";
         }
-        
-        
     }
 
 }
