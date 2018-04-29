@@ -24,15 +24,15 @@
                 <h:panelGrid columns="2">
                     <h:panelGrid columns="2">
                         <p style="width: 170px;">Vorname: </p>
-                        <h:inputText style="width: 200px;" value="#{registrierungController.vorname}" a:placeholder="Vorname"/>
+                        <h:inputText style="width: 200px;" value="#{registerViewController.vorname}" a:placeholder="Vorname"/>
                         <p style="width: 170px;">Nachname: </p>
-                        <h:inputText style="width: 200px;" value="#{registrierungController.nachname}" a:placeholder="Nachname"/>
+                        <h:inputText style="width: 200px;" value="#{registerViewController.nachname}" a:placeholder="Nachname"/>
                         <p style="width: 170px;">E-mail: </p>
-                        <h:inputText style="width: 200px;" value="#{registrierungController.email}" a:placeholder="Email"/>
+                        <h:inputText style="width: 200px;" value="#{registerViewController.email}" a:placeholder="Email"/>
                         <p style="width: 170px;">Passwort: </p>
-                        <h:inputSecret style="width: 200px;" value="#{registrierungController.passwort1}" a:placeholder="Passwort"/>
+                        <h:inputSecret style="width: 200px;" value="#{registerViewController.passwort1}" a:placeholder="Passwort"/>
                         <p style="width: 170px;">Passwortbestätigung: </p>
-                        <h:inputSecret style="width: 200px;" value="#{registrierungController.passwort2}" a:placeholder="Passwortbestätigung"/>                   
+                        <h:inputSecret style="width: 200px;" value="#{registerViewController.passwort2}" a:placeholder="Passwortbestätigung"/>                   
                     </h:panelGrid>
                     <h:panelGrid style="border: 1px dotted; font-size: 12px; padding: 5px; width: 170px;">                      
                         <h:outputText value="Passwortanforderungen:"/>
@@ -44,7 +44,7 @@
                     </h:panelGrid>
                 </h:panelGrid>
                 <br/>
-                <h:commandButton onclick="PF('dlg').show();" action="#{registrierungController.anfrageSenden()}" value="Registrieren"/>
+                <h:commandButton onclick="PF('dlg').show();" action="#{registerViewController.anfrageSenden()}" value="Registrieren"/>
                 <br/><br/>
                 <h:outputText value="#{registrierungController.error}" style="color: red"/>
                 <br/><br/>
@@ -53,6 +53,8 @@
             <p:dialog showEffect="slide" widgetVar="dlg" dynamic="true" header="Registrierung" width="250" height="100" >
                 <h:outputText value="Vielen Dank für Ihre Registrierung. Ein Anfragemail wurde erfolgreich gesendet. Sie werden in den nächsten Tagen benachrichtigt." />
             </p:dialog>
+            
+            <h:commandButton action="index" value="Zur Startseite"/>
         </center>
     </ui:define>
 
