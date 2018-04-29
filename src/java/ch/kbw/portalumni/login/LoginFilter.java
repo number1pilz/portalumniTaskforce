@@ -45,22 +45,22 @@ public class LoginFilter implements Filter {
 
         if (session.getUser() == null) {
             if ((url.indexOf("events.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
             } else if ((url.indexOf("fotogalerie.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
             } else if ((url.indexOf("news.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
                 
             } else if ((url.indexOf("settings.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
             } else if ((url.indexOf("adminHomepage.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
             } else if ((url.indexOf("adminUserAdministration.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
             } else {
                 chain.doFilter(request, response);
@@ -68,7 +68,7 @@ public class LoginFilter implements Filter {
         } else {
             if (url.indexOf("logout.xhtml") >= 0) {
                 session.setUser(null);
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/index.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/index.xhtml");
 
             } else {
                 System.out.println("E: chain.doFilter");
