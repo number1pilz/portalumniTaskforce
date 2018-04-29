@@ -18,8 +18,11 @@
         <h:form>
             <h:dataTable value="#{userAdministrationViewController.allUsers}" var="user">
                 <h:column>
-                    
+                    <p>#{user.vorname} #{user.nachname}</p>
+                    <h:commandButton action="#{userAdministrationViewController.activateUser(user.idBenutzer)}" value="Aktivieren" rendered="#{user.enabled==false}"/>
+                    <h:commandButton action="#{userAdministrationViewController.deactivateUser(user.idBenutzer)}" value="Deaktivieren" rendered="#{user.enabled==true}" />
                 </h:column>
+
             </h:dataTable>
         </h:form>
 

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -20,19 +21,40 @@ import org.hibernate.Session;
 @ManagedBean
 @SessionScoped
 public class UserAdministrationViewController {
+
     private ArrayList<Benutzer> userList;
 
     public UserAdministrationViewController() {
         userList = new ArrayList();
     }
-    
-    
-    public ArrayList<Benutzer> getAllUsers(){
+
+    public ArrayList<Benutzer> getAllUsers() {
         //get all User
         Session s = HibernateUtil.getInstance().openSession();
         setUserList((ArrayList<Benutzer>) s.createQuery("FROM Benutzer").list());
-        
+
         return userList;
+    }
+
+    public void activateUser(int index) {
+        Session session = HibernateUtil.getInstance().openSession();
+        Transaction t = session.beginTransaction();
+        Benutzer b = (Benutzer) session.get(Benutzer.class, index);
+        b.setEnabled(true);
+        System.out.println("Hdddddddddddddddddddddddddd" + b.getVorname());
+        session.update(b);
+        t.commit();
+        session.close();
+    }
+
+    public void deactivateUser(int index) {
+        Session session = HibernateUtil.getInstance().openSession();
+        Transaction t = session.beginTransaction();
+        Benutzer b = (Benutzer) session.get(Benutzer.class, index);
+        b.setEnabled(false);
+        session.update(b);
+        t.commit();
+        session.close();
     }
 
     /**
@@ -48,6 +70,5 @@ public class UserAdministrationViewController {
     public void setUserList(ArrayList<Benutzer> userList) {
         this.userList = userList;
     }
-    
-    
+
 }
