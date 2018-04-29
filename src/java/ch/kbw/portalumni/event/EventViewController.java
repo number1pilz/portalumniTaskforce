@@ -30,7 +30,7 @@ public class EventViewController {
         eventList = new ArrayList();
     }
 
-    public ArrayList getEvents() {
+    public ArrayList<Event> getEvents() {
         //get all Events
         Session s = HibernateUtil.getInstance().openSession();
         setEventList((ArrayList<Event>) s.createQuery("FROM Event").list());
