@@ -7,15 +7,12 @@
                 template="./templates/standardTemplate.xhtml"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:define name="navbrand">
-        <li><img src="resources/images/logo.png" style="height: 50px" alt=""/></li>
-    </ui:define>
     <ui:define name="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Events</a></li>
+        <li class="active"><h:link value="Home" outcome="index" /></li>
+        <li><a href="news.xhtml">News</a></li>
+        <li><a href="events.xhtml">Events</a></li>
         <li><a href="fotogalerie.xhtml">Fotogalerie</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="login.xhtml">Login</a></li>
     </ui:define>
 
     <ui:define name="content">
