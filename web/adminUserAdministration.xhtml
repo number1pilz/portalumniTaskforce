@@ -15,7 +15,14 @@
     </ui:define>
 
     <ui:define name="content">
-        
+        <h:form>
+            <h:dataTable value="#{userAdministrationViewController.allUsers}" var="u">
+                <h:column>
+                    
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
     </ui:define>
 
 </ui:composition>
