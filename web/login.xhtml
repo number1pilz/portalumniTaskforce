@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="./templates/standardTemplate.xhtml">
+
+    <ui:define name="nav">
+        <li><h:link id="active" class="align-right" value="Registrierung" outcome="registrierung" /></li>
+        <li><h:link class="align-right" value="Fotogalerie" outcome="fotogalerie" /></li>
+        <li><h:link class="align-right" value="Events" outcome="events" /></li>
+        <li><h:link class="align-right" value="News" outcome="news" /></li>
+        <li><h:link class="align-right" value="Home" outcome="index" /></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <center>
+            <h:form>
+            <h:panelGrid columns="2">
+                <h:outputText value="E-Mail: " />
+                <h:inputText value="#{loginController.email}" />
+                <h:outputText value="Passwort: " />
+                <h:inputText value="#{loginController.password}" />
+                <h:outputText value="" />
+                <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
+            </h:panelGrid>
+            </h:form>
+        </center>
+    </ui:define>
+
+</ui:composition>
