@@ -8,22 +8,23 @@
 .infos {
     margin-left: auto;
     margin-right: auto;
+    width: 1050px;
 }
 
 .info1 {
-    left: 10px;
+    margin-left: 10px;
 }
 
 .info2 {
-    left: 282px;
+    margin-left: 270px;
 }
 
 .info3 {
-    right: 282px;
+    margin-left: 530px;
 }
 
 .info4 {
-    right: 10px;
+    margin-left: 790px;
 }
 
 .info1, .info2, .info3, .info4 {
@@ -35,7 +36,7 @@
     height: 200px;
     position: absolute;
     transition: 0.2s linear;
-    width: 260px;
+    width: 250px;
 }
 
 .info1 h3, .info2 h3, .info3 h3, .info4 h3 {
