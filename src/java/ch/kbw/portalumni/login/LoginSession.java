@@ -30,6 +30,10 @@ public class LoginSession implements Serializable {
     public Benutzer getUser() {
         return user;
     }
+
+    public void setUser(Benutzer user) {
+        this.user = user;
+    }
     
     public String validate(String email, String clearTextPassword) { //TODO: HASHEN
         Session session = HibernateUtil.getInstance().openSession();
