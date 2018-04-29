@@ -16,14 +16,24 @@
 
     <ui:define name="content">
         <h:form>
-            <h:dataTable value="#{userAdministrationViewController.allUsers}" var="user">
-                <h:column>
-                    <p>#{user.vorname} #{user.nachname}</p>
-                    <h:commandButton action="#{userAdministrationViewController.activateUser(user.idBenutzer)}" value="Aktivieren" rendered="#{user.enabled==false}"/>
-                    <h:commandButton action="#{userAdministrationViewController.deactivateUser(user.idBenutzer)}" value="Deaktivieren" rendered="#{user.enabled==true}" />
-                </h:column>
+            <table>
+                <tr>
+                    <td >Name</td><td >Vorname</td><td >E-Mail</td><td >Newsletter</td><td >Aktivert</td>
+                </tr>
+                <h:dataTable value="#{userAdministrationViewController.allUsers}" var="user">
+                    
+                    <h:column>
+                        <tr>
+                            <td >#{user.nachname}</td><td >#{user.vorname}</td><td >#{user.email}</td><td >#{user.newsletter}</td><td >#{user.enabled}</td>
+                            <td ><h:commandButton action="#{userAdministrationViewController.activateUser(user.idBenutzer)}" value="Aktivieren" rendered="#{user.enabled==false}"/></td>
+                            <td ><h:commandButton action="#{userAdministrationViewController.deactivateUser(user.idBenutzer)}" value="Deaktivieren" rendered="#{user.enabled==true}" /></td>
+                        </tr>
+                        
+                        
+                    </h:column>
 
-            </h:dataTable>
+                </h:dataTable>
+            </table>
         </h:form>
 
     </ui:define>
