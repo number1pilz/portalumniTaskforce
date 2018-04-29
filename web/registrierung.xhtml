@@ -46,9 +46,8 @@
                 <br/>
                 <h:commandButton onclick="PF('dlg').show();" action="#{registerViewController.anfrageSenden()}" value="Registrieren"/>
                 <br/><br/>
-                <h:outputText value="#{registrierungController.error}" style="color: red"/>
+                <h:outputText value="#{registerViewController.error}" style="color: red"/>
                 <br/><br/>
-                <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="login" />, wenn Sie bereits ein Konto haben.</p>
             </h:form>
             <p:dialog showEffect="slide" widgetVar="dlg" dynamic="true" header="Registrierung" width="250" height="100" >
                 <h:outputText value="Vielen Dank für Ihre Registrierung. Ein Anfragemail wurde erfolgreich gesendet. Sie werden in den nächsten Tagen benachrichtigt." />
