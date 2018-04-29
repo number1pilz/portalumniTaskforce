@@ -17,8 +17,25 @@
     <ui:define name="content">
         <p>Events Seite</p>
         <h:form>
+            <h:dataTable value="#{eventViewController.events}" var="e">
+                <h:column>
+                    #{e.titel}
+                </h:column>
+                <h:column>
+                    #{e.text}
+                </h:column>
+                <h:column>
+                    #{e.img1}
+                </h:column>
+                <h:column>
+                    #{e.img2}
+                </h:column>
+                <h:column>
+                    #{e.img3}
+                </h:column>
+            </h:dataTable>
             <h:commandButton action="createEvent" value="Neuen Event hinzufügen"/>
         </h:form>
     </ui:define>
-    
+
 </ui:composition>

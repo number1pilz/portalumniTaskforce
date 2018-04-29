@@ -29,23 +29,37 @@ public class EventCreatorViewController implements Serializable {
     private boolean complete = true;
     private String errorMsg1 = "";
     private String errorMsg2 = "";
+    private String errorMsg3 = "";
 
     public void createEvent() {
-        if (text.length() < 20) {
+        errorMsg1 = "";
+        errorMsg2 = "";
+        errorMsg3 = "";
+        //Valdiate
+        if (text.length()
+                < 20) {
             complete = false;
             setErrorMsg1("Die Textlänge muss mindestens 20 Zeichen betragen!");
         }
 
-        if (imgPath1.equals("") && imgPath2.equals("") && imgPath3.equals("")) {
+        if (imgPath1.equals(
+                "") && imgPath2.equals("") && imgPath3.equals("")) {
             complete = false;
             setErrorMsg2("Mindestens ein Feld 'Fotoname' muss ausgefüllt sein!");
         }
 
-        if (complete == true) {
+        if (getTitle()
+                .equals("")) {
+            complete = false;
+            setErrorMsg3("Das Feld 'Titel' darf nicht leer sein!");
+        }
+
+        if (complete
+                == true) {
             //Add Event
-            
+
             Event e = new Event();
-            e.setTitel(title);
+            e.setTitel(getTitle());
             e.setText(text);
             e.setImg1(imgPath1);
             e.setImg2(imgPath2);
@@ -164,18 +178,31 @@ public class EventCreatorViewController implements Serializable {
     }
 
     /**
-     * @return the titel
+     * @return the title
      */
-    public String getTitel() {
+    public String getTitle() {
         return title;
     }
 
     /**
-     * @param titel the titel to set
+     * @param title the title to set
      */
-    public void setTitel(String titel) {
-        this.title = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    
+    /**
+     * @return the errorMsg3
+     */
+    public String getErrorMsg3() {
+        return errorMsg3;
+    }
+
+    /**
+     * @param errorMsg3 the errorMsg3 to set
+     */
+    public void setErrorMsg3(String errorMsg3) {
+        this.errorMsg3 = errorMsg3;
+    }
+
 }
