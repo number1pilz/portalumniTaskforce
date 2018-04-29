@@ -13,7 +13,7 @@ body {
 
 footer {
     background-color: #F9F9F9;
-    height: 55px; /* Die gleiche Höhe wie die Navigation */
+    height: 50px; /* Die gleiche Höhe wie die Navigation */
     position: relative;
 }
 
@@ -47,17 +47,29 @@ li a {
     padding: 20px 25px;
     transition: 0.2s linear;
     
-    /* height: 55px; <-- Das ist die Höhe der Navigation */
 }
 
+<<<<<<< HEAD
+
+.navbar-nav li a:hover, .navbar-nav > .active > a {
+    color: #F9F9F9 !important;
+    text-decoration: none;
+    background-color:#1F98BB !important;
+    background-image: none !important;
+}
+=======
+>>>>>>> 63c5269bd51fb319eb7bea48a426e4a1639504e1
 p {
     font-size: 14px;
     margin: 0px;
 }
 
+<<<<<<< HEAD
+=======
 ul{
     height: 50px;
 }
+>>>>>>> 63c5269bd51fb319eb7bea48a426e4a1639504e1
 
 /* ul {
     background-color: #F9F9F9;
@@ -73,10 +85,10 @@ ul{
 }
 
 .content {
-    height: calc(100vh - 130px); /* 100vh - 55x2 (Höhe von Nav und Footer) - 20 (margin von .content) */
+    height: calc(100vh - 120px); /* 100vh - 55x2 (Höhe von Nav und Footer) - 20 (margin von .content) */
     padding: 10px;
     position: relative;
-}
+} 
 
 .navbar-nav li a:hover, .navbar-nav > .active > a {
     color: #F9F9F9 !important;
