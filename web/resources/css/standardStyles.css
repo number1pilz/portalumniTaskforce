@@ -49,27 +49,19 @@ li a {
     
 }
 
-<<<<<<< HEAD
-
 .navbar-nav li a:hover, .navbar-nav > .active > a {
     color: #F9F9F9 !important;
     text-decoration: none;
     background-color:#1F98BB !important;
     background-image: none !important;
 }
-=======
->>>>>>> 63c5269bd51fb319eb7bea48a426e4a1639504e1
+
 p {
     font-size: 14px;
     margin: 0px;
 }
 
-<<<<<<< HEAD
-=======
-ul{
-    height: 50px;
-}
->>>>>>> 63c5269bd51fb319eb7bea48a426e4a1639504e1
+
 
 /* ul {
     background-color: #F9F9F9;
