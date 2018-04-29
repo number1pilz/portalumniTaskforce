@@ -7,6 +7,10 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="./templates/standardTemplate.xhtml">
 
+    <ui:define name="css">
+        <h:outputStylesheet name="loginStyles.css" library="css"/>
+    </ui:define>
+
     <ui:define name="nav">
         <li><h:link value="Home" outcome="index" /></li>
         <li><h:link value="News" outcome="news" /></li>
@@ -19,14 +23,14 @@
         <center>
             <h:form>
                 <h:panelGrid columns="2">
-                    <p style="margin-bottom: auto; margin-top: auto; width: 100px;">E-Mail: </p>
-                    <h:inputText style="margin-bottom: 5px; width: 200px;" value="#{loginController.email}" />
-                    <p style="margin-bottom: auto; margin-top: auto; width: 100px;">Passwort: </p>
-                    <h:inputText style="margin-bottom: 5px; width: 200px;" value="#{loginController.password}" /><br/>
+                    <p class="output">E-Mail: </p>
+                    <h:inputText class="input" value="#{loginController.email}" />
+                    <p class="output">Passwort: </p>
+                    <h:inputText class="input" value="#{loginController.password}" /><br/>
                     <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
                 </h:panelGrid>
                 <br/>
-                <p style="color: red;">#{loginController.errorMessage}</p>
+                <p class="error">#{loginController.errorMessage}</p>
                 <br/>
                 <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="registrierung" />, wenn Sie kein Konto haben.</p>
             </h:form>

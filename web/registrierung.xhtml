@@ -8,6 +8,10 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="./templates/standardTemplate.xhtml">
 
+    <ui:define name="css">
+        <h:outputStylesheet name="registrationStyles.css" library="css"/>
+    </ui:define>
+    
     <ui:define name="nav">
         <li><h:link value="Home" outcome="index" /></li>
         <li><h:link value="News" outcome="news" /></li>
@@ -23,18 +27,18 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:panelGrid columns="2">
-                        <p style="margin-bottom: auto; margin-top: auto; width: 150px;">Vorname: </p>
-                        <h:inputText style="margin-bottom: 5px; width: 200px;" value="#{registerViewController.vorname}" a:placeholder="Vorname"/>
-                        <p style="margin-bottom: auto; margin-top: auto; width: 150px;">Nachname: </p>
-                        <h:inputText style="margin-bottom: 5px; width: 200px;" value="#{registerViewController.nachname}" a:placeholder="Nachname"/>
-                        <p style="margin-bottom: auto; margin-top: auto; width: 150px;">E-mail: </p>
-                        <h:inputText style="margin-bottom: 5px; width: 200px;" value="#{registerViewController.email}" a:placeholder="Email"/>
-                        <p style="margin-bottom: auto; margin-top: auto; width: 150px;">Passwort: </p>
-                        <h:inputSecret style="margin-bottom: 5px; width: 200px;" value="#{registerViewController.passwort1}" a:placeholder="Passwort"/>
-                        <p style="margin-bottom: auto; margin-top: auto; width: 150px;">Passwortbestätigung: </p>
-                        <h:inputSecret style="margin-bottom: 5px; width: 200px;" value="#{registerViewController.passwort2}" a:placeholder="Passwortbestätigung"/>                   
+                        <p class="output">Vorname: </p>
+                        <h:inputText class="input" value="#{registerViewController.vorname}" />
+                        <p class="output">Nachname: </p>
+                        <h:inputText class="input" value="#{registerViewController.nachname}" />
+                        <p class="output">E-mail: </p>
+                        <h:inputText class="input" value="#{registerViewController.email}" />
+                        <p class="output">Passwort: </p>
+                        <h:inputSecret class="input" value="#{registerViewController.passwort1}" />
+                        <p class="output">Passwortbestätigung: </p>
+                        <h:inputSecret class="input" value="#{registerViewController.passwort2}" />                   
                     </h:panelGrid>
-                    <h:panelGrid style="font-size: 12px; margin-bottom: auto; margin-left: 10px; margin-top: auto; width: 170px;">                      
+                    <h:panelGrid class="passwordCriteria">
                         <h:outputLabel value="Passwortanforderungen:"/>
                         <h:outputText value="- Mindestens 8 Zeichen lang"/>
                         <h:outputText value="- Enthält Grossbuchstaben"/>
@@ -46,9 +50,9 @@
                 <br/>
                 <h:commandButton onclick="PF('dlg').show();" action="#{registerViewController.anfrageSenden()}" value="Registrieren"/>
                 <br/><br/>
-                <h:outputText value="#{registrierungController.error}" style="color: red"/>
+                <h:outputText class="error" value="#{registrierungController.error}" />
+                <h:outputText value="#{registerViewController.error}" style="color: red"/>
                 <br/><br/>
-                <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="login" />, wenn Sie bereits ein Konto haben.</p>
             </h:form>
             <p:dialog showEffect="slide" widgetVar="dlg" dynamic="true" header="Registrierung" width="250" height="100" >
                 <h:outputText value="Vielen Dank für Ihre Registrierung. Ein Anfragemail wurde erfolgreich gesendet. Sie werden in den nächsten Tagen benachrichtigt." />
