@@ -17,7 +17,6 @@
 
     <ui:define name="content">
         <center>
-            <h3>Eingeloggt als: #{loginSession.user.email}</h3>
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputText value="E-Mail: " />
@@ -26,12 +25,13 @@
                     <h:inputText value="#{loginController.password}" />
                     <h:outputText value="" />
                     <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
-                    <p stlye="color:red">#{loginController.errorMessage}</p>
+
                 </h:panelGrid>
+                <h:outputText value="#{loginController.errorMessage}" />
                 <br/><br/>
                 <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="registrierung" />, wenn Sie kein Konto haben.</p>
             </h:form>
-            
+
         </center>
     </ui:define>
 

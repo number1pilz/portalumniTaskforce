@@ -18,9 +18,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebFilter("/faces/*")
 public class LoginFilter implements Filter {
 
     @Inject
@@ -43,22 +45,22 @@ public class LoginFilter implements Filter {
 
         if (session.getUser() == null) {
             if ((url.indexOf("events.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
 
             } else if ((url.indexOf("fotogalerie.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
 
             } else if ((url.indexOf("news.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
                 
             } else if ((url.indexOf("settings.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
 
             } else if ((url.indexOf("adminHomepage.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
 
             } else if ((url.indexOf("adminUserAdministration.xhtml")) >= 0) {
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/login.xhtml");
 
             } else {
                 chain.doFilter(request, response);
@@ -66,7 +68,7 @@ public class LoginFilter implements Filter {
         } else {
             if (url.indexOf("logout.xhtml") >= 0) {
                 session.setUser(null);
-                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/index.xhtml");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/faces/index.xhtml");
 
             } else {
                 System.out.println("E: chain.doFilter");

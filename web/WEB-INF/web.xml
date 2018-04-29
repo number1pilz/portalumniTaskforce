@@ -13,6 +13,10 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>LoggingFilter</filter-name>
+        <filter-class>ch.kbw.portalumni.login.LoginFilter</filter-class>
+    </filter>
     <session-config>
         <session-timeout>
             30
