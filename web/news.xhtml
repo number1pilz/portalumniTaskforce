@@ -9,11 +9,11 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="nav">
-        <li><h:link class="align-right" value="Registrierung" outcome="registrierung" /></li>
-        <li><h:link class="align-right" value="Fotogalerie" outcome="fotogalerie" /></li>
-        <li><h:link class="align-right" value="Events" outcome="events" /></li>
-        <li><h:link id="active" class="align-right" value="News" outcome="news" /></li>
         <li><h:link class="align-right" value="Home" outcome="index" /></li>
+        <li class="active"><h:link class="align-right" value="News" outcome="news" /></li>
+        <li><h:link class="align-right" value="Events" outcome="events" /></li>
+        <li><h:link class="align-right" value="Fotogalerie" outcome="fotogalerie" /></li>
+        <li><h:link class="align-right" value="Login" outcome="login" /></li>
     </ui:define>
 
     <ui:define name="content">

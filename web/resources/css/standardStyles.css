@@ -47,8 +47,8 @@ li a {
     padding: 20px 25px;
     transition: 0.2s linear;
     
-    /* height: 55px; <-- Das ist die Höhe der Navigation */
 }
+
 
 .navbar-nav li a:hover, .navbar-nav > .active > a {
     color: #F9F9F9 !important;
@@ -60,9 +60,7 @@ p {
     margin: 0px;
 }
 
-ul{
-    height: 50px;
-}
+
 /* ul {
     background-color: #F9F9F9;
     list-style-type: none;

@@ -8,31 +8,33 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="nav">
-        <li class="active"><h:link value="Home" outcome="index" /></li>
-        <li><a href="news.xhtml">News</a></li>
-        <li><a href="events.xhtml">Events</a></li>
-        <li><a href="fotogalerie.xhtml">Fotogalerie</a></li>
-        <li><a href="login.xhtml">Login</a></li>
+        <li class="active"><h:link class="align-right" value="Home" outcome="index" /></li>
+        <li><h:link value="News" outcome="news" /></li>
+        <li><h:link value="Events" outcome="events" /></li>
+        <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
+        <li><h:link value="Login" outcome="login" /></li>
     </ui:define>
 
     <ui:define name="content">
         <h:form id="form1">
         </h:form>
-        <div class="info1">
-            <h3>Box 1</h3>
-            <p></p>
-        </div>
-        <div class="info2">
-            <h3>Box 2</h3>
-            <p></p>
-        </div>
-        <div class="info3">
-            <h3>Box 3</h3>
-            <p></p>
-        </div>
-        <div class="info4">
-            <h3>Testing</h3>
-            <p>Go to the <h:link class="textbtn" value="account settings" outcome="settings" /><br></br>Go to the <h:link class="textbtn" value="mailing service" outcome="mail" /></p>
+        <div class="infos">
+            <div class="info1">
+                <h3>Box 1</h3>
+                <p></p>
+            </div>
+            <div class="info2">
+                <h3>Box 2</h3>
+                <p></p>
+            </div>
+            <div class="info3">
+                <h3>Box 3</h3>
+                <p></p>
+            </div>
+            <div class="info4">
+                <h3>Testing</h3>
+                <p>Go to the <h:link class="textbtn" value="account settings" outcome="settings" /><br></br>Go to the <h:link class="textbtn" value="mailing service" outcome="mail" /></p>
+            </div>
         </div>
     </ui:define>
 
