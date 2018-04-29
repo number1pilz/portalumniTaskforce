@@ -35,13 +35,13 @@ public class RegisterViewController {
     private String passwort1 = "";
     private String passwort2 = "";
     private String error = "";
-    private String firma = " ";
+    private String firma = "";
     private boolean button = false;
 
     public void anfrageSenden() throws InterruptedException {
         setButton(false);
         if (vorname.isEmpty() || nachname.isEmpty() || email.isEmpty() || passwort1.isEmpty() || passwort2.isEmpty()) {
-            error = "Füllen Sie das Formular ganz aus.";
+            setError("Füllen Sie das Formular ganz aus.");
         } else {
             if (checkPasswort() == true && checkEmail() == true) {
 
@@ -70,7 +70,7 @@ public class RegisterViewController {
         if (passwort1.equals(passwort2)) {
             if (passwort1.length() < 8) {
 
-                error = "Die Passwortanforderungen wurden nicht erfüllt.";
+                setError("Die Passwortanforderungen wurden nicht erfüllt.");
                 return false;
             }
 
@@ -79,7 +79,7 @@ public class RegisterViewController {
             Matcher m = uppCasePattern.matcher(passwort1);
             if (!m.find()) {
 
-                error = "Die Passwortanforderungen wurden nicht erfüllt.";
+                setError("Die Passwortanforderungen wurden nicht erfüllt.");
                 return false;
             }
 
@@ -88,7 +88,7 @@ public class RegisterViewController {
             Matcher m2 = lowerCasePattern.matcher(passwort1);
             if (!m2.find()) {
 
-                error = "Die Passwortanforderungen wurden nicht erfüllt.";
+                setError("Die Passwortanforderungen wurden nicht erfüllt.");
                 return false;
             }
 
@@ -97,7 +97,7 @@ public class RegisterViewController {
             Matcher m3 = numberCasePattern.matcher(passwort1);
             if (!m3.find()) {
 
-                error = "Die Passwortanforderungen wurden nicht erfüllt.";
+                setError("Die Passwortanforderungen wurden nicht erfüllt.");
                 return false;
             }
 
@@ -106,11 +106,11 @@ public class RegisterViewController {
             Matcher m4 = symbolCasePattern.matcher(passwort1);
             if (!m4.find()) {
 
-                error = "Die Passwortanforderungen wurden nicht erfüllt.";
+                setError("Die Passwortanforderungen wurden nicht erfüllt.");
                 return false;
             }
         } else {
-            error = "Die Passwörter stimmen nicht überein.";
+            setError("Die Passwörter stimmen nicht überein.");
             return false;
         }
 
@@ -123,7 +123,7 @@ public class RegisterViewController {
             InternetAddress emailAdr = new InternetAddress(email);
             emailAdr.validate();
         } catch (AddressException ex) {
-            error = "Die angegebene E-Mail Adresse ist ungültig.";
+            setError("Die angegebene E-Mail Adresse ist ungültig.");
             result = false;
         }
         return result;
@@ -135,7 +135,7 @@ public class RegisterViewController {
         email = "";
         passwort1 = "";
         passwort2 = "";
-        error = "";
+        setError("");
     }
 
     /**
@@ -220,6 +220,20 @@ public class RegisterViewController {
      */
     public void setButton(boolean button) {
         this.button = button;
+    }
+
+    /**
+     * @return the error
+     */
+    public String getError() {
+        return error;
+    }
+
+    /**
+     * @param error the error to set
+     */
+    public void setError(String error) {
+        this.error = error;
     }
 
 
