@@ -35,7 +35,7 @@
     float: left;
     height: 200px;
     position: absolute;
-    transition: 0.2s linear;
+    transition: 0.1s linear;
     width: 250px;
 }
 
@@ -50,5 +50,5 @@
 
 .info1:hover, .info2:hover, .info3:hover, .info4:hover {
     height: 300px;
-    transition: 0.2s linear;
+    transition: 0.1s linear;
 }

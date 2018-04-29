@@ -50,19 +50,15 @@ li a {
     /* height: 55px; <-- Das ist die Höhe der Navigation */
 }
 
-.navbar-nav li a:hover, .navbar-nav > .active > a {
-    color: #F9F9F9 !important;
-    text-decoration: none;
-    background-color:#1F98BB !important;
-    background-image: none !important;
-}
 p {
+    font-size: 14px;
     margin: 0px;
 }
 
 ul{
     height: 50px;
 }
+
 /* ul {
     background-color: #F9F9F9;
     list-style-type: none;
@@ -72,14 +68,21 @@ ul{
     height: 55px;
 } */
 
+.align-right {
+    float: right;
+}
+
 .content {
     height: calc(100vh - 130px); /* 100vh - 55x2 (Höhe von Nav und Footer) - 20 (margin von .content) */
     padding: 10px;
     position: relative;
 }
 
-.align-right {
-    float: right;
+.navbar-nav li a:hover, .navbar-nav > .active > a {
+    color: #F9F9F9 !important;
+    text-decoration: none;
+    background-color:#1F98BB !important;
+    background-image: none !important;
 }
 
 
