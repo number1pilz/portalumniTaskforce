@@ -17,15 +17,17 @@
 
     <ui:define name="content">
         <center>
+            <h3>Eingeloggt als: #{loginSession.user.email}</h3>
             <h:form>
-            <h:panelGrid columns="2">
-                <h:outputText value="E-Mail: " />
-                <h:inputText value="#{loginController.email}" />
-                <h:outputText value="Passwort: " />
-                <h:inputText value="#{loginController.password}" />
-                <h:outputText value="" />
-                <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
-            </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <h:outputText value="E-Mail: " />
+                    <h:inputText value="#{loginController.email}" />
+                    <h:outputText value="Passwort: " />
+                    <h:inputText value="#{loginController.password}" />
+                    <h:outputText value="" />
+                    <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
+                    <p stlye="color:red">#{loginController.errorMessage}</p>
+                </h:panelGrid>
             </h:form>
         </center>
     </ui:define>

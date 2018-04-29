@@ -56,6 +56,10 @@ public class LoginController implements Serializable {
         loginSession.user = null;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+    
     public void checkUser() {
         String returnVal = loginSession.validate(email, password);
         
