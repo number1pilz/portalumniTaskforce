@@ -25,9 +25,11 @@ import org.hibernate.Session;
 public class EventViewController {
 
     private ArrayList<Event> eventList;
+    private ArrayList<String> imagesList;
 
     public EventViewController() {
-        eventList = new ArrayList();
+        eventList = new ArrayList<>();
+        imagesList = new ArrayList<>();
     }
 
     public ArrayList<Event> getEvents() {
@@ -36,6 +38,22 @@ public class EventViewController {
         setEventList((ArrayList<Event>) s.createQuery("FROM Event").list());
 
         return eventList;
+    }
+
+    public ArrayList<String> getImages(Event e) {
+        imagesList.clear();
+        
+        if (!e.getImg1().isEmpty()) {
+            imagesList.add(e.getImg1());
+        }
+        if (!e.getImg2().isEmpty()) {
+            imagesList.add(e.getImg2());
+        }
+        if (!e.getImg3().isEmpty()) {
+            imagesList.add(e.getImg3());
+        }
+
+        return imagesList;
     }
 
     /**
@@ -51,6 +69,18 @@ public class EventViewController {
     public void setEventList(ArrayList<Event> eventList) {
         this.eventList = eventList;
     }
-    
-    
+
+    /**
+     * @return the imagesList
+     */
+    public ArrayList<String> getImagesList() {
+        return imagesList;
+    }
+
+    /**
+     * @param imagesList the imagesList to set
+     */
+    public void setImagesList(ArrayList<String> imagesList) {
+        this.imagesList = imagesList;
+    }
 }

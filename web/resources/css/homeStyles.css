@@ -3,23 +3,23 @@
 .infos {
     margin-left: auto;
     margin-right: auto;
-    width: 1050px;
+    width: 1100px;
 }
 
 .info1 {
-    margin-left: 10px;
+    margin-left: 25px;
 }
 
 .info2 {
-    margin-left: 270px;
+    margin-left: 285px;
 }
 
 .info3 {
-    margin-left: 530px;
+    margin-left: 545px;
 }
 
 .info4 {
-    margin-left: 790px;
+    margin-left: 805px;
 }
 
 .info1, .info2, .info3, .info4 {
@@ -33,6 +33,11 @@
     position: absolute;
     transition: 0.1s linear;
     width: 250px;
+}
+
+.info1 h3, .info2 h3, .info3 h3, .info4 h3 {
+    color: #1F98BB;
+    margin: 0px;
 }
 
 .info1 p, .info2 p, .info3 p, .info4 p {

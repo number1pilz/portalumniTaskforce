@@ -3,18 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/src/java/ch/kbw/portalumni/admin/UserAdministrationViewController.java</file>
+            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/events.xhtml</file>
             <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/resources/css/registrationStyles.css</file>
+            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/index.xhtml</file>
             <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/registrierung.xhtml</file>
             <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/adminUserAdministration.xhtml</file>
-=======
-            <file>file:/D:/Dokumente/portalumniTaskforce/web/resources/css/standardStyles.css</file>
-            <file>file:/D:/Dokumente/portalumniTaskforce/web/fotogalerie.xhtml</file>
-            <file>file:/D:/Dokumente/portalumniTaskforce/web/templates/standardTemplate.xhtml</file>
-            <file>file:/D:/Dokumente/portalumniTaskforce/web/login.xhtml</file>
-            <file>file:/D:/Dokumente/portalumniTaskforce/web/index.xhtml</file>
->>>>>>> 2666cf03736286201471aece030d2640d6e06fbf
+            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/resources/css/eventsStyles.css</file>
         </group>
     </open-files>
 </project-private>
