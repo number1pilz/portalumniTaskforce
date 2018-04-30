@@ -5,7 +5,8 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 template="./templates/standardTemplate.xhtml"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="navbrand">
         <li><img src="resources/images/logo.png" style="height: 50px" alt=""/></li>
@@ -15,12 +16,17 @@
         <li><h:link value="News" outcome="news" /></li>
         <li><h:link value="Events" outcome="events" /></li>
         <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
-        <li><h:link value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
     </ui:define>
 
     <ui:define name="content">
         <h:form>
-            
+            <p:growl id="messages" showDetail="true" />
+
+            <p:fileUpload value="#{fileUploadViewController.file}" mode="simple" skinSimple="true"/>
+
+            <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadViewController.upload}"/>
         </h:form>
     </ui:define>
 

@@ -236,5 +236,19 @@ public class RegisterViewController {
         this.error = error;
     }
 
+    /**
+     * @return the firma
+     */
+    public String getFirma() {
+        return firma;
+    }
+
+    /**
+     * @param firma the firma to set
+     */
+    public void setFirma(String firma) {
+        this.firma = firma;
+    }
+
 
 }

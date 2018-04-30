@@ -11,13 +11,14 @@
     <ui:define name="css">
         <h:outputStylesheet name="registrationStyles.css" library="css"/>
     </ui:define>
-    
+
     <ui:define name="nav">
         <li><h:link value="Home" outcome="index" /></li>
         <li><h:link value="News" outcome="news" /></li>
         <li><h:link value="Events" outcome="events" /></li>
         <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
-        <li><h:link value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
     </ui:define>
 
     <ui:define name="content">
@@ -27,16 +28,18 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:panelGrid columns="2">
-                        <p class="output">Vorname: </p>
+                        <p class="output">Vorname*: </p>
                         <h:inputText class="input" value="#{registerViewController.vorname}" />
-                        <p class="output">Nachname: </p>
+                        <p class="output">Nachname*: </p>
                         <h:inputText class="input" value="#{registerViewController.nachname}" />
-                        <p class="output">E-mail: </p>
+                        <p class="output">E-Mail*: </p>
                         <h:inputText class="input" value="#{registerViewController.email}" />
-                        <p class="output">Passwort: </p>
+                        <p class="output">Passwort*: </p>
                         <h:inputSecret class="input" value="#{registerViewController.passwort1}" />
-                        <p class="output">Passwortbestätigung: </p>
-                        <h:inputSecret class="input" value="#{registerViewController.passwort2}" />                   
+                        <p class="output">Passwortbestätigung*: </p>
+                        <h:inputSecret class="input" value="#{registerViewController.passwort2}" />
+                        <p class="output">Firma: </p>
+                        <h:inputText class="input" value="#{registerViewController.firma}" />
                     </h:panelGrid>
                     <h:panelGrid class="passwordCriteria">
                         <h:outputLabel value="Passwortanforderungen:"/>
@@ -60,8 +63,13 @@
             <p:dialog showEffect="slide" widgetVar="dlg" dynamic="true" header="Registrierung" width="250" height="100" >
                 <h:outputText value="Vielen Dank für Ihre Registrierung. Ein Anfragemail wurde erfolgreich gesendet. Sie werden in den nächsten Tagen benachrichtigt." />
             </p:dialog>
+<<<<<<< HEAD
             
             <h:commandButton action="index" value="Zur Startseite"/> -->
+=======
+
+            <h:commandButton action="index" value="Zur Startseite"/>
+>>>>>>> 2666cf03736286201471aece030d2640d6e06fbf
         </center>
     </ui:define>
 
