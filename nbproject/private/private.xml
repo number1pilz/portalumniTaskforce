@@ -2,13 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
+            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/src/java/ch/kbw/portalumni/admin/UserAdministrationViewController.java</file>
+            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/resources/css/registrationStyles.css</file>
+            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/registrierung.xhtml</file>
             <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/adminUserAdministration.xhtml</file>
-            <file>file:/C:/Users/ceizz/Desktop/PortalumniTaskforce_Repo/web/adminHomepage.xhtml</file>
         </group>
-=======
-        <group/>
->>>>>>> fb806bcd076f002c09745f0c481b927645ae3924
     </open-files>
 </project-private>

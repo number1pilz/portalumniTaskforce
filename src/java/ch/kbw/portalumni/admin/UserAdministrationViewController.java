@@ -41,7 +41,6 @@ public class UserAdministrationViewController {
         Transaction t = session.beginTransaction();
         Benutzer b = (Benutzer) session.get(Benutzer.class, index);
         b.setEnabled(true);
-        System.out.println("Hdddddddddddddddddddddddddd" + b.getVorname());
         session.update(b);
         t.commit();
         session.close();
