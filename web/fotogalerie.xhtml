@@ -11,7 +11,8 @@
         <li><h:link  value="News" outcome="news" /></li>
         <li><h:link  value="Events" outcome="events" /></li>
         <li class="active"><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
-        <li><h:link  value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
     </ui:define>
 
 

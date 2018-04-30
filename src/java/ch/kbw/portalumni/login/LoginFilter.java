@@ -31,7 +31,7 @@ public class LoginFilter implements Filter {
 
     @Inject
     private ErrorViewController errorController;
-    
+
     @Override
     public void destroy() {
 
@@ -73,6 +73,10 @@ public class LoginFilter implements Filter {
             if (url.contains("logout.xhtml")) {
                 session.setUser(null);
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/index.xhtml");
+
+            } else if (url.contains("registrierung.xhtml")) {
+                errorController.setErrorMessage("Sie können nicht auf diese Seite zugreifen, da Sie bereits angemeldet sind.");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/error.xhtml");
 
             } else if (url.contains("adminHomepage.xhtml") && !session.getUser().isAdmin()) {
                 errorController.setErrorMessage("Sie haben keinen Zugang zu diesem Bereich.");
