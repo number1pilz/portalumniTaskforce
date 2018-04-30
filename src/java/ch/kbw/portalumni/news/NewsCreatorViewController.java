@@ -1,12 +1,14 @@
-package ch.kbw.portalumni.event;
+package ch.kbw.portalumni.news;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import ch.kbw.portalumni.event.*;
 import ch.kbw.portalumni.hibernate.HibernateUtil;
 import ch.kbw.portalumni.hibernatedata.Event;
+import ch.kbw.portalumni.hibernatedata.News;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
@@ -19,13 +21,13 @@ import org.hibernate.Transaction;
 
 @SessionScoped
 @ManagedBean
-public class EventCreatorViewController implements Serializable {
+public class NewsCreatorViewController implements Serializable {
 
     private String text;
     private String title;
-    private String imgPath1="";
-    private String imgPath2="";
-    private String imgPath3="";
+    private String imgPath1 = "";
+    private String imgPath2 = "";
+    private String imgPath3 = "";
     private boolean complete = true;
     private String errorMsg1 = "";
     private String errorMsg2 = "";
@@ -42,39 +44,37 @@ public class EventCreatorViewController implements Serializable {
             setErrorMsg1("Die Textlänge muss mindestens 20 Zeichen betragen!");
         }
 
-        if (imgPath1.equals(
-                "") && imgPath2.equals("") && imgPath3.equals("")) {
+        if (imgPath1.equals("")) {
             complete = false;
-            setErrorMsg2("Mindestens ein Feld 'Fotoname' muss ausgefüllt sein!");
+            setErrorMsg2("Mindestens ein Feld 'Fotoname 1' muss ausgefüllt sein!");
         }
 
-        if (getTitle()
-                .equals("")) {
+        if (getTitle().equals("")) {
             complete = false;
             setErrorMsg3("Das Feld 'Titel' darf nicht leer sein!");
         }
 
         if (complete
                 == true) {
-            //Add Event
+            //Add News
 
-            Event e = new Event();
-            e.setTitel(getTitle());
-            e.setText(text);
-            e.setImg1(imgPath1);
-            e.setImg2(imgPath2);
-            e.setImg3(imgPath3);
+            News n = new News();
+            n.setTitel(getTitle());
+            n.setText(text);
+            n.setImg1(imgPath1);
+            n.setImg2(imgPath2);
+            n.setImg3(imgPath3);
             Session session = HibernateUtil.getInstance().openSession();
             Transaction t = session.beginTransaction();
-            session.save(e);
+            session.save(n);
             t.commit();
             session.close();
 
             //REDIRECT
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("events.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("news.xhtml");
             } catch (IOException ex) {
-                Logger.getLogger(EventCreatorViewController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(NewsCreatorViewController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

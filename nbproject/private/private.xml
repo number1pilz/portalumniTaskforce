@@ -3,21 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/event/EventCreatorViewController.java</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/registrierung.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/adminUserAdministration.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/fileupload.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/register/RegisterViewController.java</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/events.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/admin/UserAdministrationViewController.java</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/createEvent.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/index.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/fileupload/FileUploadViewController.java</file>
             <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/adminHomepage.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/fotogalerie.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/error.xhtml</file>
-            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/confirmation.xhtml</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/adminCompanyAdministration.xhtml</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/resources/css/userAdministrationStyles.css</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/admin/CompanyAdministrationController.java</file>
         </group>
     </open-files>
 </project-private>
