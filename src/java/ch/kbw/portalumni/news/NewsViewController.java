@@ -5,16 +5,12 @@
  */
 package ch.kbw.portalumni.news;
 
-import ch.kbw.portalumni.event.*;
 import ch.kbw.portalumni.hibernate.HibernateUtil;
 import ch.kbw.portalumni.hibernatedata.Event;
-import java.io.IOException;
+import ch.kbw.portalumni.hibernatedata.News;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import org.hibernate.Session;
 
 /**
@@ -25,33 +21,37 @@ import org.hibernate.Session;
 @ManagedBean
 public class NewsViewController {
 
-    private ArrayList<Event> eventList;
+    private ArrayList<News> newsList;
 
     public NewsViewController() {
-        eventList = new ArrayList();
+        newsList = new ArrayList();
     }
 
-    public ArrayList<Event> getEvents() {
+    public ArrayList<News> getNews() {
         //get all Events
         Session s = HibernateUtil.getInstance().openSession();
-        setEventList((ArrayList<Event>) s.createQuery("FROM Event").list());
+        setNewsList((ArrayList<News>) s.createQuery("FROM News").list());
 
-        return eventList;
+        return getNewsList();
     }
 
     /**
-     * @return the eventList
+     * @return the newsList
      */
-    public ArrayList<Event> getEventList() {
-        return eventList;
+    public ArrayList<News> getNewsList() {
+        return newsList;
     }
 
     /**
-     * @param eventList the eventList to set
+     * @param newsList the newsList to set
      */
-    public void setEventList(ArrayList<Event> eventList) {
-        this.eventList = eventList;
+    public void setNewsList(ArrayList<News> newsList) {
+        this.newsList = newsList;
     }
+
+ 
+
+
     
     
 }
