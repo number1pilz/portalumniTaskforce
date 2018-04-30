@@ -9,6 +9,8 @@ import ch.kbw.portalumni.event.EventCreatorViewController;
 import ch.kbw.portalumni.hibernate.HibernateUtil;
 import ch.kbw.portalumni.hibernatedata.Benutzer;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -60,9 +62,16 @@ public class RegisterViewController {
                 t.commit();
                 session.close();
 
-                Thread.sleep(5000);
+                //REDIRECT
+                try {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("confirmation.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(EventCreatorViewController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         }
+
     }
 
     public boolean checkPasswort() {
@@ -118,7 +127,12 @@ public class RegisterViewController {
     }
 
     public boolean checkEmail() {
+        ArrayList<String> mailList = new ArrayList();
         boolean result = true;
+
+        Session session = HibernateUtil.getInstance().openSession();
+        List<Benutzer> members = session.createQuery("FROM Benutzer").list();
+
         try {
             InternetAddress emailAdr = new InternetAddress(email);
             emailAdr.validate();
@@ -126,6 +140,14 @@ public class RegisterViewController {
             setError("Die angegebene E-Mail Adresse ist ungültig.");
             result = false;
         }
+
+        for (Benutzer b : members) {
+            if (b.getEmail().equalsIgnoreCase(email)) {
+                setError("Es besteht schon ein Account mit dieser Mailadresse.");
+                result = false;
+            }
+        }
+
         return result;
     }
 
@@ -249,6 +271,5 @@ public class RegisterViewController {
     public void setFirma(String firma) {
         this.firma = firma;
     }
-
 
 }
