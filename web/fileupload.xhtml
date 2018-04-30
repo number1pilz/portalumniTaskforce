@@ -21,13 +21,11 @@
     </ui:define>
 
     <ui:define name="content">
-        <h:form>
-            <p:growl id="messages" showDetail="true" />
-
-            <p:fileUpload value="#{fileUploadViewController.file}" mode="simple" skinSimple="true"/>
-
-            <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadViewController.upload}"/>
+        <h:form enctype="multipart/form-data"> 
+            <h:inputFile value="#{fileUploadViewController.filePart}"/>
+            <h:commandButton value="Upload" action="#{fileUploadViewController.save}" />
         </h:form>
+
     </ui:define>
 
 </ui:composition>
