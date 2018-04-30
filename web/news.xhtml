@@ -18,20 +18,20 @@
     </ui:define>
 
     <ui:define name="content">
-        <p:dataList id="list" value="#{agendaService.selectAllPosts()}" var="post" type="ordered" emptyMessage="Keine News derzeit">
-            <p:panel id="basic"  style="margin-bottom:20px">
-                <f:facet name="header">
-                    <p:outputLabel value="#{post.title}"/>
-                </f:facet>
-                <f:facet name="footer">
-                    <p:outputLabel value="von #{userDAO.currentUser.userName} und findet statt in: #{post.place}"/>
-                </f:facet>
-                <h:panelGrid columns="2" cellpadding="10">
-                    <p:outputLabel value="#{post.content}"/>
-                </h:panelGrid>
-            </p:panel>
-        </p:dataList>
         <p>News Seite</p>
+        <h:form>
+            <h:dataTable value="#{newsViewController.news}" var="n">
+                <h:column>
+                    #{n.titel}
+                    #{n.text}
+                    #{n.img1}
+                    #{n.img2}
+                    #{n.img3}
+                    <h:commandButton action="index.xhtml" value="Weiterlesen"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
     </ui:define>
 
 </ui:composition>

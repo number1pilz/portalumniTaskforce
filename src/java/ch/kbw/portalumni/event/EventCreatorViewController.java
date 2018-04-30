@@ -23,9 +23,9 @@ public class EventCreatorViewController implements Serializable {
 
     private String text;
     private String title;
-    private String imgPath1;
-    private String imgPath2;
-    private String imgPath3;
+    private String imgPath1="";
+    private String imgPath2="";
+    private String imgPath3="";
     private boolean complete = true;
     private String errorMsg1 = "";
     private String errorMsg2 = "";
@@ -72,7 +72,7 @@ public class EventCreatorViewController implements Serializable {
 
             //REDIRECT
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/Alumni/faces/events.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("events.xhtml");
             } catch (IOException ex) {
                 Logger.getLogger(EventCreatorViewController.class.getName()).log(Level.SEVERE, null, ex);
             }
