@@ -5,12 +5,17 @@
  */
 package ch.kbw.portalumni.news;
 
+import ch.kbw.portalumni.event.EventCreatorViewController;
 import ch.kbw.portalumni.hibernate.HibernateUtil;
 import ch.kbw.portalumni.hibernatedata.Event;
 import ch.kbw.portalumni.hibernatedata.News;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import org.hibernate.Session;
 
 /**
@@ -20,9 +25,11 @@ import org.hibernate.Session;
 @SessionScoped
 @ManagedBean
 public class NewsViewController {
-
+    
+    
     private ArrayList<News> newsList;
     private String prewStr;
+    private News rightNews = null;
 
     public NewsViewController() {
         newsList = new ArrayList();
@@ -42,13 +49,27 @@ public class NewsViewController {
                 if (text.length() > 50) {
                     prewStr = text.substring(0, 50);
                     prewStr = prewStr + "...";
-                }else{
+                } else {
                     prewStr = text;
                 }
             }
         }
 
         return prewStr;
+    }
+
+    public void redirectToFullPost(String title) {
+        for (News n : newsList) {
+            if (n.getTitel().equalsIgnoreCase(title)) {
+                rightNews = n;
+                //REDIRECT
+                try {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("fullNews.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(EventCreatorViewController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 
     /**
@@ -79,4 +100,18 @@ public class NewsViewController {
         this.prewStr = prewStr;
     }
 
+    /**
+     * @return the rightNews
+     */
+    public News getRightNews() {
+        return rightNews;
+    }
+
+    /**
+     * @param rightNews the rightNews to set
+     */
+    public void setRightNews(News rightNews) {
+        this.rightNews = rightNews;
+    }
+    
 }

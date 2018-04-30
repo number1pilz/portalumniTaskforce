@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+<<<<<<< HEAD
+=======
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/fullNews.xhtml</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/news/FullNewsViewController.java</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/hibernatedata/News.java</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/web/news.xhtml</file>
+            <file>file:/C:/Users/Silvan%20Baach/Desktop/Taskforce/src/java/ch/kbw/portalumni/news/NewsViewController.java</file>
+        </group>
+    </open-files>
+>>>>>>> 11e92ad355b860f78a67feb72d9eeed57a14a1e7
 </project-private>

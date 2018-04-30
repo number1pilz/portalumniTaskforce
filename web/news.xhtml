@@ -25,7 +25,7 @@
                     #{n.titel} 
                     #{newsViewController.prewText(n.text)} 
                     #{n.img1}
-                    <h:commandButton action="index.xhtml" value="Weiterlesen"/>
+                    <h:commandButton action="#{newsViewController.redirectToFullPost(n.titel)}" value="Weiterlesen"/>
                 </h:column>
 
             </h:dataTable>
