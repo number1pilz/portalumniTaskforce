@@ -23,9 +23,9 @@ public class EventCreatorViewController implements Serializable {
 
     private String text;
     private String title;
-    private String imgPath1;
-    private String imgPath2;
-    private String imgPath3;
+    private String imgPath1="";
+    private String imgPath2="";
+    private String imgPath3="";
     private boolean complete = true;
     private String errorMsg1 = "";
     private String errorMsg2 = "";

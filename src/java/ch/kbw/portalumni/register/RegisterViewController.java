@@ -8,11 +8,17 @@ package ch.kbw.portalumni.register;
 import ch.kbw.portalumni.event.EventCreatorViewController;
 import ch.kbw.portalumni.hibernate.HibernateUtil;
 import ch.kbw.portalumni.hibernatedata.Benutzer;
+import ch.kbw.portalumni.hibernatedata.Firma;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -37,10 +43,30 @@ public class RegisterViewController {
     private String error = "";
     private String firma = "";
     private boolean button = false;
+    private Map<String, String> companyMap;
+    private String companyString;
+    private List<Firma> comp;
+
+    @PostConstruct
+    public void init() {
+        companyMap = new LinkedHashMap<String, String>();
+        Session session = HibernateUtil.getInstance().openSession();
+        comp = session.createQuery("FROM Firma").list();
+
+        for (Firma f : comp) {
+            companyMap.put(f.getName(), f.getName());
+        }
+    }
+
+    public void show() {
+        System.out.println("akljfhajksdfhasjhlsdhjfsa" + companyString);
+    }
 
     public void anfrageSenden() throws InterruptedException {
         setButton(false);
-        if (vorname.isEmpty() || nachname.isEmpty() || email.isEmpty() || passwort1.isEmpty() || passwort2.isEmpty()) {
+        boolean check = false;
+        Session session = HibernateUtil.getInstance().openSession();
+        if (vorname.isEmpty() || nachname.isEmpty() || email.isEmpty() || passwort1.isEmpty() || passwort2.isEmpty() || companyString.equals("")) {
             setError("Füllen Sie das Formular ganz aus.");
         } else {
             if (checkPasswort() == true && checkEmail() == true) {
@@ -49,20 +75,36 @@ public class RegisterViewController {
                 b.setAdmin(false);
                 b.setEmail(email);
                 b.setEnabled(false);
-                b.setFirma(null);
+
+                for (Firma f : comp) {
+                    if (f.getName().equalsIgnoreCase(companyString)) {
+                        b.setFirma(f);
+                        check = true;
+                    }
+                }
+                if (check == false) {
+                    b.setFirma(null);
+                }
                 b.setNachname(nachname);
                 b.setNewsletter(false); //!!
                 b.setPasswort(passwort1);
                 b.setVorname(vorname);
-                Session session = HibernateUtil.getInstance().openSession();
-                Transaction t = session.beginTransaction();
+
+                Transaction t = session.beginTransaction();;
                 session.save(b);
                 t.commit();
-                session.close();
 
-                Thread.sleep(5000);
+                //REDIRECT
+                try {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("confirmation.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(EventCreatorViewController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         }
+        session.close();
+
     }
 
     public boolean checkPasswort() {
@@ -118,7 +160,12 @@ public class RegisterViewController {
     }
 
     public boolean checkEmail() {
+        ArrayList<String> mailList = new ArrayList();
         boolean result = true;
+
+        Session session = HibernateUtil.getInstance().openSession();
+        List<Benutzer> members = session.createQuery("FROM Benutzer").list();
+
         try {
             InternetAddress emailAdr = new InternetAddress(email);
             emailAdr.validate();
@@ -126,6 +173,14 @@ public class RegisterViewController {
             setError("Die angegebene E-Mail Adresse ist ungültig.");
             result = false;
         }
+
+        for (Benutzer b : members) {
+            if (b.getEmail().equalsIgnoreCase(email)) {
+                setError("Es besteht schon ein Account mit dieser Mailadresse.");
+                result = false;
+            }
+        }
+
         return result;
     }
 
@@ -250,5 +305,32 @@ public class RegisterViewController {
         this.firma = firma;
     }
 
+    /**
+     * @return the companyMap
+     */
+    public Map<String, String> getCompanyMap() {
+        return companyMap;
+    }
+
+    /**
+     * @param companyMap the companyMap to set
+     */
+    public void setCompanyMap(Map<String, String> companyMap) {
+        this.companyMap = companyMap;
+    }
+
+    /**
+     * @return the companyString
+     */
+    public String getCompanyString() {
+        return companyString;
+    }
+
+    /**
+     * @param companyString the companyString to set
+     */
+    public void setCompanyString(String companyString) {
+        this.companyString = companyString;
+    }
 
 }
