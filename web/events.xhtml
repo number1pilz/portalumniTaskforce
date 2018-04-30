@@ -6,6 +6,10 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 template="./templates/standardTemplate.xhtml">
 
+    <ui:define name="css">
+        <h:outputStylesheet name="homeStyles.css" library="css"/>
+    </ui:define>
+
     <ui:define name="nav">
         <li><h:link value="Home" outcome="index" /></li>
         <li><h:link value="News" outcome="news" /></li>
@@ -20,20 +24,29 @@
         <h:form>
             <h:dataTable value="#{eventViewController.events}" var="e">
                 <h:column>
-                    #{e.titel}
+                    <div class="event-div">
+                        <h3>#{e.titel}</h3>
+                    </div>
                 </h:column>
-                <h:column>
-                    #{e.text}
-                </h:column>
-                <h:column>
-                    #{e.img1}
-                </h:column>
-                <h:column>
-                    #{e.img2}
-                </h:column>
-                <h:column>
-                    #{e.img3}
-                </h:column>
+
+
+
+
+                <!--<h:column>
+                #{e.titel}
+            </h:column>
+            <h:column>
+                #{e.text}
+            </h:column>
+            <h:column>
+                #{e.img1}
+            </h:column>
+            <h:column>
+                #{e.img2}
+            </h:column>
+            <h:column>
+                #{e.img3}
+            </h:column>-->
             </h:dataTable>
             <h:commandButton action="createEvent" value="Neuen Event hinzufügen"/>
         </h:form>
