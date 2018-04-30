@@ -26,29 +26,19 @@
                 <h:column>
                     <div class="event-div">
                         <h3>#{e.titel}</h3>
+                        <div class="container-fluid">
+                            #{e.text}
+                        </div>
+                        <center>
+                            <ui:repeat value="#{eventViewController.getImages(e)}" var="img">
+                                <div class="event-img">
+                                    <img src="#{img}" alt="#{img}" />
+                                </div>
+                            </ui:repeat>
+                        </center>
                     </div>
                 </h:column>
-
-
-
-
-                <!--<h:column>
-                #{e.titel}
-            </h:column>
-            <h:column>
-                #{e.text}
-            </h:column>
-            <h:column>
-                #{e.img1}
-            </h:column>
-            <h:column>
-                #{e.img2}
-            </h:column>
-            <h:column>
-                #{e.img3}
-            </h:column>-->
             </h:dataTable>
-            <h:commandButton action="createEvent" value="Neuen Event hinzufügen"/>
         </h:form>
     </ui:define>
 

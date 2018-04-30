@@ -19,21 +19,22 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputText value="Titel: "/>
-                <h:inputText value="#{eventCreatorViewController.title}"/>
+                <h:inputText value="#{newsCreatorViewController.title}"/>
                 <h:outputText value="Text: "/>
-                <h:inputTextarea value="#{eventCreatorViewController.text}"/>
+                <h:inputTextarea value="#{newsCreatorViewController.text}"/>
                 <h:outputText value="Fotoname 1 (inkl. Dateiendung): "/>
-                <h:inputText value="#{eventCreatorViewController.imgPath1}"/>
+                <h:inputText value="#{newsCreatorViewController.imgPath1}"/>
                 <h:outputText value="Fotoname 2 (inkl. Dateiendung): "/>
-                <h:inputText value="#{eventCreatorViewController.imgPath2}"/>
+                <h:inputText value="#{newsCreatorViewController.imgPath2}"/>
                 <h:outputText value="Fotoname 3 (inkl. Dateiendung): "/>
-                <h:inputText value="#{eventCreatorViewController.imgPath3}"/>
+                <h:inputText value="#{newsCreatorViewController.imgPath3}"/>
+                <h:outputText value="Das Bild, das unter 'Fotoname 1' angegeben wurde, wird als Preview verwendet!"/>
             </h:panelGrid>
             <h:panelGrid columns="1">
-                <h:outputText value="#{eventCreatorViewController.errorMsg1}"/>
-                <h:outputText value="#{eventCreatorViewController.errorMsg2}"/>
-                <h:outputText value="#{eventCreatorViewController.errorMsg3}"/>
-                <h:commandButton action="#{eventCreatorViewController.createEvent()}" value="Hinzufügen"/>
+                <h:outputText value="#{newsCreatorViewController.errorMsg1}"/>
+                <h:outputText value="#{newsCreatorViewController.errorMsg2}"/>
+                <h:outputText value="#{newsCreatorViewController.errorMsg3}"/>
+                <h:commandButton action="#{newsCreatorViewController.createEvent()}" value="Hinzufügen"/>
             </h:panelGrid>
         </h:form>
 
