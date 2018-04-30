@@ -7,7 +7,7 @@
                 template="./templates/standardTemplate.xhtml">
 
     <ui:define name="css">
-        <h:outputStylesheet name="homeStyles.css" library="css"/>
+        <h:outputStylesheet name="eventsStyles.css" library="css"/>
     </ui:define>
 
     <ui:define name="nav">
@@ -20,25 +20,22 @@
     </ui:define>
 
     <ui:define name="content">
-        <p>Events Seite</p>
         <h:form>
-            <h:dataTable value="#{eventViewController.events}" var="e">
-                <h:column>
-                    <div class="event-div">
-                        <h3>#{e.titel}</h3>
-                        <div class="container-fluid">
-                            #{e.text}
-                        </div>
-                        <center>
-                            <ui:repeat value="#{eventViewController.getImages(e)}" var="img">
-                                <div class="event-img">
-                                    <img src="#{img}" alt="#{img}" />
-                                </div>
-                            </ui:repeat>
-                        </center>
+            <ui:repeat value="#{eventViewController.events}" var="e">
+                <div class="event-div">
+                    <h3>#{e.titel}</h3>
+                    <div class="container-fluid">
+                        #{e.text}
                     </div>
-                </h:column>
-            </h:dataTable>
+                    <center>
+                        <ui:repeat value="#{eventViewController.getImages(e)}" var="img">
+                            <div class="event-img">
+                                <img src="#{img}" alt="#{img}" />
+                            </div>
+                        </ui:repeat>
+                    </center>
+                </div>
+            </ui:repeat>
         </h:form>
     </ui:define>
 
