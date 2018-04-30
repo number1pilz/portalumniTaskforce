@@ -11,19 +11,14 @@
         <h:outputStylesheet name="homeStyles.css" library="css"/>
     </ui:define>
     
-    <ui:define name="logo">
-        <li><object data="resources/images/logo.svg" type="image/svg+xml"></object></li>
-    </ui:define>
-    <ui:define name="navbrand">
-        <li><img src="resources/images/logo.png" style="height: 50px" alt=""/></li>
-    </ui:define>
 
     <ui:define name="nav">
         <li class="active"><h:link value="Home" outcome="index" /></li>
         <li><h:link value="News" outcome="news" /></li>
         <li><h:link value="Events" outcome="events" /></li>
         <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
-        <li><h:link value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
     </ui:define>
 
     <ui:define name="content">
