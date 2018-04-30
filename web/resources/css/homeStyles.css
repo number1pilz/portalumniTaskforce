@@ -29,18 +29,14 @@
     box-shadow: 0px 0px 3px #292929;
     float: left;
     height: 200px;
+    padding: 5px;
     position: absolute;
     transition: 0.1s linear;
     width: 250px;
 }
 
-.info1 h3, .info2 h3, .info3 h3, .info4 h3 {
-    color: #1F98BB;
-    margin: 5px;
-}
-
 .info1 p, .info2 p, .info3 p, .info4 p {
-    margin: 5px;
+    margin-top: 5px;
 }
 
 .info1:hover, .info2:hover, .info3:hover, .info4:hover {

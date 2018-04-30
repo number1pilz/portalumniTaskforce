@@ -21,60 +21,44 @@
     </ui:define>
 
     <ui:define name="content">
-        <h:dataTable value="#{userAdministrationViewController.allUsers}" var="user"
-                     styleClass="order-table"
-                     headerClass="order-table-header"
-                     rowClasses="order-table-odd-row,order-table-even-row" >
-            <h:column>
-                <f:facet name = "header">Name</f:facet>
-                    #{user.nachname}
-            </h:column>
-
-            <h:column>
-                <f:facet name = "header">Vorname</f:facet>
-                    #{user.vorname}
-            </h:column>
-
-            <h:column>
-                <f:facet name = "header">E-Mail</f:facet>
-                    #{user.email}
-            </h:column>
-
-            <h:column>
-                <f:facet name = "header">Newsletter</f:facet>
-                    #{user.newsletter}
-            </h:column>
-
-            <h:column>
-                <f:facet name = "header">Aktiviert</f:facet>
-                    #{user.enabled}
-            </h:column>
-            
-            <h:column>
-                <h:commandButton action="#{userAdministrationViewController.activateUser(user.idBenutzer)}" value="Aktivieren" rendered="#{user.enabled==false}"/>
-            </h:column>
-            
-            <h:column>
-                <h:commandButton action="#{userAdministrationViewController.deactivateUser(user.idBenutzer)}" value="Deaktivieren" rendered="#{user.enabled==true}" />
-            </h:column>
-        </h:dataTable>
-
-        <!--<th>Name</th>
-                        <th>Vorname</th>
-                        <th>E-Mail</th>
-                        <th>Newsletter</th>
-                        <th>Aktivert</th>
-        <h:dataTable value="#{userAdministrationViewController.allUsers}" var="user" >
-            <h:column>
-                <td>#{user.nachname}</td>
-                <td>#{user.vorname}</td>
-                <td>#{user.email}</td>
-                <td>#{user.newsletter}</td>
-                <td>#{user.enabled}</td>
-                <td><h:commandButton action="#{userAdministrationViewController.activateUser(user.idBenutzer)}" value="Aktivieren" rendered="#{user.enabled==false}"/></td>
-                <td><h:commandButton action="#{userAdministrationViewController.deactivateUser(user.idBenutzer)}" value="Deaktivieren" rendered="#{user.enabled==true}" /></td>
-            </h:column>
-        </h:dataTable>-->
+        <center>
+            <h:form>
+                <h:panelGrid>
+                    <h:dataTable value="#{userAdministrationViewController.allUsers}" var="user"
+                                 styleClass="order-table"
+                                 headerClass="order-table-header"
+                                 rowClasses="order-table-odd-row,order-table-even-row" >
+                        <h:column>
+                            <f:facet name = "header">Name</f:facet>
+                                #{user.nachname}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Vorname</f:facet>
+                                #{user.vorname}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">E-Mail</f:facet>
+                                #{user.email}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Newsletter</f:facet>
+                                #{user.newsletter}
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Aktiviert</f:facet>
+                                #{user.enabled}
+                        </h:column>
+                        <h:column>
+                            <h:commandButton action="#{userAdministrationViewController.activateUser(user.idBenutzer)}" value="Aktivieren" rendered="#{user.enabled==false}"/>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton action="#{userAdministrationViewController.deactivateUser(user.idBenutzer)}" value="Deaktivieren" rendered="#{user.enabled==true}" />
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandButton class="align-right" action="adminHomepage.xhtml" value="Zurück zur Homepage" />
+                </h:panelGrid>
+            </h:form>
+        </center>
     </ui:define>
 
 </ui:composition>
