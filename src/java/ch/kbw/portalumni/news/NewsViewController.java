@@ -22,6 +22,7 @@ import org.hibernate.Session;
 public class NewsViewController {
 
     private ArrayList<News> newsList;
+    private String prewStr;
 
     public NewsViewController() {
         newsList = new ArrayList();
@@ -33,6 +34,21 @@ public class NewsViewController {
         setNewsList((ArrayList<News>) s.createQuery("FROM News").list());
 
         return getNewsList();
+    }
+
+    public String prewText(String text) {
+        for (News n : newsList) {
+            if (n.getText().equals(text)) {
+                if (text.length() > 50) {
+                    prewStr = text.substring(0, 50);
+                    prewStr = prewStr + "...";
+                }else{
+                    prewStr = text;
+                }
+            }
+        }
+
+        return prewStr;
     }
 
     /**
@@ -49,9 +65,18 @@ public class NewsViewController {
         this.newsList = newsList;
     }
 
- 
+    /**
+     * @return the prewStr
+     */
+    public String getPrewStr() {
+        return prewStr;
+    }
 
+    /**
+     * @param prewStr the prewStr to set
+     */
+    public void setPrewStr(String prewStr) {
+        this.prewStr = prewStr;
+    }
 
-    
-    
 }
