@@ -9,6 +9,7 @@ package ch.kbw.portalumni.login;
  *
  * @author Fabian
  */
+import ch.kbw.portalumni.error.*;
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -22,11 +23,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/faces/*")
+@WebFilter("/*")
 public class LoginFilter implements Filter {
 
     @Inject
     private LoginSession session;
+
+    @Inject
+    private ErrorViewController errorController;
 
     @Override
     public void destroy() {
@@ -52,7 +56,7 @@ public class LoginFilter implements Filter {
 
             } else if ((url.indexOf("news.xhtml")) >= 0) {
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
-                
+
             } else if ((url.indexOf("settings.xhtml")) >= 0) {
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
@@ -66,9 +70,21 @@ public class LoginFilter implements Filter {
                 chain.doFilter(request, response);
             }
         } else {
-            if (url.indexOf("logout.xhtml") >= 0) {
+            if (url.contains("logout.xhtml")) {
                 session.setUser(null);
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/index.xhtml");
+
+            } else if (url.contains("registrierung.xhtml")) {
+                errorController.setErrorMessage("Sie können nicht auf diese Seite zugreifen, da Sie bereits angemeldet sind.");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/error.xhtml");
+
+            } else if (url.contains("adminHomepage.xhtml") && !session.getUser().isAdmin()) {
+                errorController.setErrorMessage("Sie haben keinen Zugang zu diesem Bereich.");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/error.xhtml");
+
+            } else if (url.contains("adminUSerAdministration.xhtml") && !session.getUser().isAdmin()) {
+                errorController.setErrorMessage("Sie haben keinen Zugang auf diesem Bereich.");
+                myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/error.xhtml");
 
             } else {
                 System.out.println("E: chain.doFilter");
