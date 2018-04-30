@@ -44,10 +44,10 @@ public class LoginFilter implements Filter {
         HttpServletResponse myResponse = (HttpServletResponse) response;
         String url = myRequest.getRequestURI();
 
-        System.out.println(toString());
-        System.out.println("getRequestURI: " + url);
+        //System.out.println(toString());
+        //System.out.println("getRequestURI: " + url);
 
-        if (session.getUser() == null) {
+        if (session != null &&session.getUser() == null) {
             if ((url.indexOf("events.xhtml")) >= 0) {
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/login.xhtml");
 
@@ -69,7 +69,7 @@ public class LoginFilter implements Filter {
             } else {
                 chain.doFilter(request, response);
             }
-        } else {
+        } else if (session != null) {
             if (url.contains("logout.xhtml")) {
                 session.setUser(null);
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/index.xhtml");
@@ -87,7 +87,7 @@ public class LoginFilter implements Filter {
                 myResponse.sendRedirect(myRequest.getServletContext().getContextPath() + "/error.xhtml");
 
             } else {
-                System.out.println("E: chain.doFilter");
+                //System.out.println("E: chain.doFilter");
                 chain.doFilter(request, response);
             }
         }

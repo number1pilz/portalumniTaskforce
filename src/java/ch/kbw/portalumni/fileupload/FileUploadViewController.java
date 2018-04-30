@@ -5,11 +5,15 @@
  */
 package ch.kbw.portalumni.fileupload;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import org.primefaces.model.UploadedFile;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -21,20 +25,22 @@ import org.primefaces.model.UploadedFile;
 @SessionScoped
 public class FileUploadViewController {
 
-    private UploadedFile file;
+    private Part filePart;
 
-    public UploadedFile getFile() {
-        return file;
+    public Part getFilePart() {
+        return filePart;
     }
 
-    public void setFile(UploadedFile file) {
-        this.file = file;
+    public void setFilePart(Part FilePart) {
+        this.filePart = FilePart;
     }
 
-    public void upload() {
-        if (file != null) {
-            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
+    public void save() {
+        try (InputStream input = filePart.getInputStream()) {
+            Files.copy(input, new File("C:\\Users\\Fabian\\Desktop\\PortalumniTaskforce_Repo\\uploads", filePart.getSubmittedFileName()).toPath());
+        } catch (IOException e) {
+            // Show faces message?
         }
     }
+
 }
