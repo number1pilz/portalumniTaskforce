@@ -27,13 +27,13 @@
                     <div class="container-fluid">
                         #{e.text}
                     </div>
-                    <center>
+                    <div class="event-images">
                         <ui:repeat value="#{eventViewController.getImages(e)}" var="img">
                             <div class="event-img">
                                 <img src="#{img}" alt="#{img}" />
                             </div>
                         </ui:repeat>
-                    </center>
+                    </div>
                 </div>
             </ui:repeat>
         </h:form>

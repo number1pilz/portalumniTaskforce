@@ -6,10 +6,17 @@
 
 .event-div > .container-fluid {
     margin: 5px;
+    padding: 0px;
     width: 100%;
 }
 
+.event-div > .event-images {
+    margin: 0 auto;
+}
+
 .event-div > .event-img {
+    border: 2px solid #292929;
+    display: inline-block;
     height: 360px;
     width: 480px;
 }
