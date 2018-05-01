@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="./templates/standardTemplate.xhtml">
+
+    <ui:define name="css">
+        <h:outputStylesheet name="loginStyles.css" library="css"/>
+    </ui:define>
+
+    <ui:define name="nav">
+        <li><h:link value="Home" outcome="index" /></li>
+        <li><h:link value="News" outcome="news" /></li>
+        <li><h:link value="Events" outcome="events" /></li>
+        <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
+        <li class="active"><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li class="active"><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <center>
+            <h:outputText value="#{loginController.loginName}" />
+            <h:form id="form">
+                <h:panelGrid columns="2">
+                    <p class="output">E-Mail: </p>
+                    <h:inputText id="focus" class="input" value="#{loginController.email}"/>
+                    <p class="output">Passwort: </p>
+                    <h:inputText class="input" value="#{loginController.password}" /><br/>
+                    <h:commandButton value="Login" action="#{loginController.checkUser()}"/>
+                </h:panelGrid>
+                <br/>
+                <p class="error">#{loginController.errorMessage}</p>
+                <br/>
+                <p>Klicken Sie <h:link class="textbtn" value="hier" outcome="registrierung" />, wenn Sie kein Konto haben.</p>
+                <script>
+                    document.getElementById('form:focus').focus();
+                </script>
+            </h:form>
+        </center>
+    </ui:define>
+
+</ui:composition>

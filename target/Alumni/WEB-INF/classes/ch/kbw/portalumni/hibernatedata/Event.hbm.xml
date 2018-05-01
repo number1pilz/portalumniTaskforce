@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01.05.2018 17:47:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ch.kbw.portalumni.hibernatedata.Event" table="event" catalog="portalumni_db" optimistic-lock="version">
+        <id name="idEvent" type="java.lang.Integer">
+            <column name="idEvent" />
+            <generator class="identity" />
+        </id>
+        <property name="text" type="string">
+            <column name="text" length="65535" not-null="true" />
+        </property>
+        <property name="titel" type="string">
+            <column name="titel" length="65535" not-null="true" />
+        </property>
+        <property name="img1" type="string">
+            <column name="img1" length="65535" />
+        </property>
+        <property name="img2" type="string">
+            <column name="img2" length="65535" />
+        </property>
+        <property name="img3" type="string">
+            <column name="img3" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

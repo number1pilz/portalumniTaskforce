@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+.event-div {
+    padding: 5px;
+}
+
+.event-div > .container-fluid {
+    margin: 5px;
+    width: 100%;
+}
+
+.event-div > .event-img {
+    height: 360px;
+    width: 480px;
+}
+
+.event-div > .event-img img{
+    max-height: 100%;
+    width: auto;
+}
+
+.event-div h3 {
+    color: #1F98BB;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+#j_idt24 {
+    margin: 0px;
+}
