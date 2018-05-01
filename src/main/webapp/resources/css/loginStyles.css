@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.error {
+    color: red;
+}
+
+.input {
+    margin-bottom: 5px;
+    width: 250px;
+}
+
+.output {
+    margin-bottom: auto;
+    margin-top: auto;
+    width: 100px;
+}

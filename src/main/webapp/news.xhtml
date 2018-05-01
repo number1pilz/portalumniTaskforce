@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="./templates/standardTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="nav">
+        <li><h:link value="Home" outcome="index" /></li>
+        <li class="active"><h:link value="News" outcome="news" /></li>
+        <li><h:link value="Events" outcome="events" /></li>
+        <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
+        <li><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputText value="news"/>
+        <h:form>
+            <h:dataTable value="#{newsViewController.news}" var="n">
+                <h:column>
+                    #{n.titel} 
+                    #{newsViewController.prewText(n.text)} 
+                    #{n.img1}
+                    <h:commandButton action="#{newsViewController.redirectToFullPost(n.titel)}" value="Weiterlesen"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

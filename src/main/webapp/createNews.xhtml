@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="./templates/standardTemplate.xhtml">
+
+    <ui:define name="nav">
+        <li><h:link value="Home" outcome="index" /></li>
+        <li><h:link value="News" outcome="news" /></li>
+        <li class="active"><h:link value="Events" outcome="events" /></li>
+        <li><h:link value="Fotogalerie" outcome="fotogalerie" /></li>
+        <li><h:link rendered="#{loginSession.user==null}" value="Login" outcome="login" /></li>
+        <li><h:link rendered="#{loginSession.user!=null}" value="Logout" outcome="logout" /></li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputText value="Titel: "/>
+                <h:inputText value="#{newsCreatorViewController.title}"/>
+                <h:outputText value="Text: "/>
+                <h:inputTextarea value="#{newsCreatorViewController.text}"/>
+                <h:outputText value="Fotoname 1 (inkl. Dateiendung): "/>
+                <h:inputText value="#{newsCreatorViewController.imgPath1}"/>
+                <h:outputText value="Fotoname 2 (inkl. Dateiendung): "/>
+                <h:inputText value="#{newsCreatorViewController.imgPath2}"/>
+                <h:outputText value="Fotoname 3 (inkl. Dateiendung): "/>
+                <h:inputText value="#{newsCreatorViewController.imgPath3}"/>
+                <h:outputText value="Das Bild, das unter 'Fotoname 1' angegeben wurde, wird als Preview verwendet!"/>
+            </h:panelGrid>
+            <h:panelGrid columns="1">
+                <h:outputText value="#{newsCreatorViewController.errorMsg1}"/>
+                <h:outputText value="#{newsCreatorViewController.errorMsg2}"/>
+                <h:outputText value="#{newsCreatorViewController.errorMsg3}"/>
+                <h:commandButton action="#{newsCreatorViewController.createEvent()}" value="Hinzufügen"/>
+            </h:panelGrid>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>
